@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f84675949b243eaad4775bf68f4a84f" Name="Diagram1">
+        <EntityTypeShape EntityType="MingSuModel.Activity" Width="1.5" PointX="6" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.ActivityReference" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Add" Width="1.5" PointX="6" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.AddCatergory" Width="1.5" PointX="3.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.AddReference" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Admin" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.AdminReference" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.City" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Comment" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Discount" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Equipment" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.EquipmentCatergory" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.EquipmentReference" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Image" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.ImageReference" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Member" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Order" Width="1.5" PointX="6" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.OrderDetails" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.OrderStatus" Width="1.5" PointX="3.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Payment" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.Room" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.RoomStatus" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MingSuModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="MingSuModel.FK_ActivityReference_Activity" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_ActivityReference_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Add_AddCatergory" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_AddReference_Add" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_AddReference_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Admin_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_AdminReference_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_AdminReference_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Member_City" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Comment_RoomStyle" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_OrderDetails_Discount" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Equipment_EquipmentCatergory" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_EquipmentReference_Equipment" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_EquipmentReference_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_ImageReference_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_ImageReference_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Order_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_OrderDetails_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_OrderDetails_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_OrderDetails_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="MingSuModel.FK_Room_RoomStatus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
