@@ -47,11 +47,11 @@ namespace PJ
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtMemberID = new System.Windows.Forms.TextBox();
             this.txtCityID = new System.Windows.Forms.ComboBox();
             this.txtAuthority = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,31 +207,22 @@ namespace PJ
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(387, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(372, 23);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 102);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(422, 134);
+            this.button3.Location = new System.Drawing.Point(372, 245);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 30);
+            this.button3.Size = new System.Drawing.Size(200, 30);
             this.button3.TabIndex = 1;
             this.button3.Text = "選擇圖片";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(422, 171);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 30);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
@@ -270,6 +261,10 @@ namespace PJ
             this.txtAuthority.Size = new System.Drawing.Size(82, 29);
             this.txtAuthority.TabIndex = 4;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // MenberChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -288,7 +283,6 @@ namespace PJ
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtMemberEmail);
@@ -326,10 +320,10 @@ namespace PJ
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtMemberID;
         private System.Windows.Forms.ComboBox txtCityID;
         private System.Windows.Forms.ComboBox txtAuthority;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -36,7 +36,14 @@ namespace PJ
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
 
-            adapter = new SqlDataAdapter("SELECT * FROM Member", conn);
+            adapter = new SqlDataAdapter(
+                "SELECT * " +
+                "FROM Member As M " 
+
+                //"SELECT M.MemberID,M.MemberName,M.MemberAccount,M.MemberPassword,M.BirthDate,M.MemberPhone,M.MemberEmail,C.CityID,C.CityName,M.Authority,M.MemberImage " +
+                //"FROM Member As M " +
+                //"INNER JOIN  City As C on M.CityID = C.CityID"
+                , conn);
             buider.DataAdapter = adapter;
 
             DataSet Dset = new DataSet();
@@ -83,7 +90,7 @@ namespace PJ
 
         private void M_Change(object sender, EventArgs e)
         {
-            isaddclik = true;
+            
             if (_position < 0)
                 return;
             DataView dv = dataGridView1.DataSource as DataView;
@@ -99,7 +106,8 @@ namespace PJ
                 CityID          = (int)row["CityID"],
                 Authority       = row["Authority"].ToString(),
                 BirthDate =DateTime.Parse(row["BirthDate"].ToString()),
-
+                //LargePhoto      =Byte.Parse(row["MemberImage"].ToString()),
+                isaddornot = true ,
             };
 
             MenberChange Pgchange = new MenberChange();
@@ -119,11 +127,6 @@ namespace PJ
             row["Authority"] = Pgchange.Change.Authority;
             row["BirthDate"] = Pgchange.Change.BirthDate;
             databaseupdated();
-        }
-        bool isaddclik = false;
-        public bool isaddornot
-        {
-            get { return isaddclik; }
         }
         private void M_Add(object sender, EventArgs e)
         {

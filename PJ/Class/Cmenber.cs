@@ -17,7 +17,11 @@ namespace PJ.Class
         public string MemberPhone { get; set; }
         public string MemberEmail { get; set; }
         public int CityID { get; set; }
+        public string CityName { get; set; }
         public Binary MemberImage { get; set; }
         public string Authority { get; set; }
-        }
+        public bool isaddornot { get; set; }
+        public byte LargePhoto { get; set; }
+
+    }
 }
