@@ -44,7 +44,7 @@ namespace PJ
                 _menber.BirthDate       = DateTime.Parse(txtBirthDate.Text);
                 _menber.MemberPhone     = txtMemberPhone.Text;
                 _menber.MemberEmail     = txtMemberEmail.Text;
-                _menber.CityName        = txtCityID.Text;
+                _menber.CityID = int.Parse(txtCityID.Text);
                 _menber.Authority       = txtAuthority.Text;
                 //_menber.LargePhoto      = bytes;
                 return _menber; 
@@ -90,5 +90,6 @@ namespace PJ
                 this.pictureBox1.Image =System.Drawing.Image.FromFile(this.openFileDialog1.FileName);
             }
         }
+
     }
 }

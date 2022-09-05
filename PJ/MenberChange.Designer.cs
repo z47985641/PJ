@@ -52,16 +52,19 @@ namespace PJ
             this.txtCityID = new System.Windows.Forms.ComboBox();
             this.txtAuthority = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMemberAccount
             // 
+            this.txtMemberAccount.BackColor = System.Drawing.Color.White;
             this.txtMemberAccount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtMemberAccount.Location = new System.Drawing.Point(161, 57);
             this.txtMemberAccount.Name = "txtMemberAccount";
             this.txtMemberAccount.Size = new System.Drawing.Size(168, 29);
-            this.txtMemberAccount.TabIndex = 0;
+            this.txtMemberAccount.TabIndex = 2;
             // 
             // button1
             // 
@@ -69,7 +72,7 @@ namespace PJ
             this.button1.Location = new System.Drawing.Point(173, 364);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 30);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 10;
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -160,7 +163,7 @@ namespace PJ
             this.txtMemberPassword.Location = new System.Drawing.Point(161, 94);
             this.txtMemberPassword.Name = "txtMemberPassword";
             this.txtMemberPassword.Size = new System.Drawing.Size(168, 29);
-            this.txtMemberPassword.TabIndex = 0;
+            this.txtMemberPassword.TabIndex = 3;
             // 
             // txtMemberName
             // 
@@ -168,7 +171,7 @@ namespace PJ
             this.txtMemberName.Location = new System.Drawing.Point(161, 131);
             this.txtMemberName.Name = "txtMemberName";
             this.txtMemberName.Size = new System.Drawing.Size(168, 29);
-            this.txtMemberName.TabIndex = 0;
+            this.txtMemberName.TabIndex = 4;
             // 
             // txtBirthDate
             // 
@@ -176,7 +179,7 @@ namespace PJ
             this.txtBirthDate.Location = new System.Drawing.Point(161, 168);
             this.txtBirthDate.Name = "txtBirthDate";
             this.txtBirthDate.Size = new System.Drawing.Size(121, 29);
-            this.txtBirthDate.TabIndex = 0;
+            this.txtBirthDate.TabIndex = 5;
             // 
             // txtMemberPhone
             // 
@@ -184,7 +187,7 @@ namespace PJ
             this.txtMemberPhone.Location = new System.Drawing.Point(161, 205);
             this.txtMemberPhone.Name = "txtMemberPhone";
             this.txtMemberPhone.Size = new System.Drawing.Size(121, 29);
-            this.txtMemberPhone.TabIndex = 0;
+            this.txtMemberPhone.TabIndex = 6;
             // 
             // txtMemberEmail
             // 
@@ -192,7 +195,7 @@ namespace PJ
             this.txtMemberEmail.Location = new System.Drawing.Point(161, 242);
             this.txtMemberEmail.Name = "txtMemberEmail";
             this.txtMemberEmail.Size = new System.Drawing.Size(168, 29);
-            this.txtMemberEmail.TabIndex = 0;
+            this.txtMemberEmail.TabIndex = 7;
             // 
             // button2
             // 
@@ -200,7 +203,7 @@ namespace PJ
             this.button2.Location = new System.Drawing.Point(387, 364);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 30);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 12;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -219,7 +222,7 @@ namespace PJ
             this.button3.Location = new System.Drawing.Point(372, 245);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 30);
-            this.button3.TabIndex = 1;
+            this.button3.TabIndex = 11;
             this.button3.Text = "選擇圖片";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -241,7 +244,7 @@ namespace PJ
             this.txtMemberID.Location = new System.Drawing.Point(161, 20);
             this.txtMemberID.Name = "txtMemberID";
             this.txtMemberID.Size = new System.Drawing.Size(121, 29);
-            this.txtMemberID.TabIndex = 0;
+            this.txtMemberID.TabIndex = 1;
             // 
             // txtCityID
             // 
@@ -250,7 +253,7 @@ namespace PJ
             this.txtCityID.Location = new System.Drawing.Point(161, 279);
             this.txtCityID.Name = "txtCityID";
             this.txtCityID.Size = new System.Drawing.Size(82, 29);
-            this.txtCityID.TabIndex = 4;
+            this.txtCityID.TabIndex = 8;
             // 
             // txtAuthority
             // 
@@ -259,17 +262,37 @@ namespace PJ
             this.txtAuthority.Location = new System.Drawing.Point(161, 316);
             this.txtAuthority.Name = "txtAuthority";
             this.txtAuthority.Size = new System.Drawing.Size(82, 29);
-            this.txtAuthority.TabIndex = 4;
+            this.txtAuthority.TabIndex = 9;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBox1.Location = new System.Drawing.Point(249, 282);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 29);
+            this.textBox1.TabIndex = 13;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBox2.Location = new System.Drawing.Point(249, 317);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 29);
+            this.textBox2.TabIndex = 14;
             // 
             // MenberChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 411);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtAuthority);
             this.Controls.Add(this.txtCityID);
             this.Controls.Add(this.pictureBox1);
@@ -325,5 +348,7 @@ namespace PJ
         private System.Windows.Forms.ComboBox txtCityID;
         private System.Windows.Forms.ComboBox txtAuthority;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

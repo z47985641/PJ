@@ -19,7 +19,7 @@ namespace PJ
             InitializeComponent();
         }
         SqlCommandBuilder buider = new SqlCommandBuilder();
-        SqlDataAdapter adapter;
+        SqlDataAdapter adapter, adapterCity;
         int _position;
 
 
@@ -28,7 +28,14 @@ namespace PJ
         {
             Refrash();
 
+
+
         }
+
+        DataSet Dset = new DataSet();
+        DataSet Cityset = new DataSet();
+        List<string> list = new List<string>();
+        List<string> Clist = new List<string>();
 
         private void Refrash()
         {
@@ -46,7 +53,9 @@ namespace PJ
                 , conn);
             buider.DataAdapter = adapter;
 
-            DataSet Dset = new DataSet();
+            adapterCity = new SqlDataAdapter("SELECT *  FROM City ", conn);
+            adapterCity.Fill(Cityset);
+
             adapter.Fill(Dset);
             conn.Close();
 
@@ -54,11 +63,65 @@ namespace PJ
             dv.Table = Dset.Tables[0];
 
             dataGridView1.DataSource = dv;
+
+
+            CBox.Items.Clear();
+            foreach (DataColumn c in Dset.Tables[0].Columns)
+            {
+                CBox.Items.Add(c.ColumnName);
+                list.Add(c.ColumnName);
+            }
+            foreach (DataColumn c in Cityset.Tables[1].Columns)
+            {
+                Cmenber cmenber = new Cmenber();
+                cmenber.CityList.add
+                    CityList 
+            }
+            
+
+
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void M_search(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell c in r.Cells)
+                {
+                    c.Style.BackColor = Color.White;
+                }
+               
+            }
 
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("請輸入關鍵字!!!");
+                    break;
+                }
+                   
+                if (CBox.Text =="")
+                {
+                    foreach (DataGridViewCell c in r.Cells)
+                    {
+                        if (c.Value == null)
+                            continue;
+                        if (c.Value.ToString().ToUpper().Contains(textBox1.Text.ToUpper()))
+                        {
+                            c.Style.BackColor = Color.Yellow;
+                        }
+                    }
+                }
+                if (  list.IndexOf(CBox.Text)<0||r.Cells[list.IndexOf(CBox.Text)].Value == null)
+                    break;
+                if (r.Cells[list.IndexOf(CBox.Text)].Value.ToString().ToUpper().Contains(textBox1.Text.ToUpper()))
+                {
+                    r.Cells[list.IndexOf(CBox.Text)].Style.BackColor = Color.Yellow;
+                }
+
+
+            }
         }
 
         private void M_Delete(object sender, EventArgs e)
@@ -152,5 +215,6 @@ namespace PJ
 
             databaseupdated();
         }
+
     }
 }
