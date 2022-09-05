@@ -21,15 +21,9 @@ namespace PJ
         SqlCommandBuilder buider = new SqlCommandBuilder();
         SqlDataAdapter adapter, adapterCity;
         int _position;
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Refrash();
-
-
-
         }
 
         DataSet Dset = new DataSet();
@@ -39,6 +33,8 @@ namespace PJ
 
         private void Refrash()
         {
+            
+
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
@@ -46,15 +42,8 @@ namespace PJ
             adapter = new SqlDataAdapter(
                 "SELECT * " +
                 "FROM Member As M " 
-
-                //"SELECT M.MemberID,M.MemberName,M.MemberAccount,M.MemberPassword,M.BirthDate,M.MemberPhone,M.MemberEmail,C.CityID,C.CityName,M.Authority,M.MemberImage " +
-                //"FROM Member As M " +
-                //"INNER JOIN  City As C on M.CityID = C.CityID"
                 , conn);
             buider.DataAdapter = adapter;
-
-            adapterCity = new SqlDataAdapter("SELECT *  FROM City ", conn);
-            adapterCity.Fill(Cityset);
 
             adapter.Fill(Dset);
             conn.Close();
@@ -62,8 +51,9 @@ namespace PJ
             DataView dv = new DataView();
             dv.Table = Dset.Tables[0];
 
-            dataGridView1.DataSource = dv;
+            
 
+            dataGridView1.DataSource = dv;
 
             CBox.Items.Clear();
             foreach (DataColumn c in Dset.Tables[0].Columns)
@@ -71,15 +61,6 @@ namespace PJ
                 CBox.Items.Add(c.ColumnName);
                 list.Add(c.ColumnName);
             }
-            foreach (DataColumn c in Cityset.Tables[1].Columns)
-            {
-                Cmenber cmenber = new Cmenber();
-                cmenber.CityList.add
-                    CityList 
-            }
-            
-
-
         }
         private void M_search(object sender, EventArgs e)
         {
@@ -142,7 +123,6 @@ namespace PJ
                 adapter.Update(dv.Table);
                 Refrash();
             }
-                
         }
 
 
@@ -169,7 +149,7 @@ namespace PJ
                 CityID          = (int)row["CityID"],
                 Authority       = row["Authority"].ToString(),
                 BirthDate =DateTime.Parse(row["BirthDate"].ToString()),
-                //LargePhoto      =Byte.Parse(row["MemberImage"].ToString()),
+                //LargePhoto = (byte[])row["MemberImage"],
                 isaddornot = true ,
             };
 
@@ -189,8 +169,16 @@ namespace PJ
             row["CityID"] = Pgchange.Change.CityID;
             row["Authority"] = Pgchange.Change.Authority;
             row["BirthDate"] = Pgchange.Change.BirthDate;
+            row["MemberImage"] = Pgchange.Change.LargePhoto;
             databaseupdated();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            databaseupdated();
+            //Refrash();
+        }
+
         private void M_Add(object sender, EventArgs e)
         {
             MenberChange Pgchange = new MenberChange();
@@ -211,6 +199,7 @@ namespace PJ
             row["CityID"] = p.CityID;
             row["Authority"] = p.Authority;
             row["BirthDate"] = p.BirthDate;
+            row["MemberImage"] = p.LargePhoto;
             dv.Table.Rows.Add(row);
 
             databaseupdated();

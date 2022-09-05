@@ -21,8 +21,7 @@ namespace PJ.Class
         public Binary MemberImage { get; set; }
         public string Authority { get; set; }
         public bool isaddornot { get; set; }
-        public byte LargePhoto { get; set; }
-        public Link<string> CityList { get; set; }
+        public byte[] LargePhoto { get; set; }
 
     }
 }

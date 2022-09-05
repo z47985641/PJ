@@ -31,6 +31,7 @@ namespace PJ
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CBox = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,7 @@ namespace PJ
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -70,6 +71,7 @@ namespace PJ
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.CBox);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.button5);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
@@ -81,11 +83,21 @@ namespace PJ
             this.splitContainer1.SplitterDistance = 137;
             this.splitContainer1.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(25, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 24);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "關鍵字 : ";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(18, 273);
+            this.label1.Location = new System.Drawing.Point(17, 293);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 24);
             this.label1.TabIndex = 4;
@@ -103,7 +115,7 @@ namespace PJ
             // 
             this.CBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CBox.FormattingEnabled = true;
-            this.CBox.Location = new System.Drawing.Point(8, 300);
+            this.CBox.Location = new System.Drawing.Point(7, 320);
             this.CBox.Name = "CBox";
             this.CBox.Size = new System.Drawing.Size(121, 27);
             this.CBox.TabIndex = 2;
@@ -120,9 +132,9 @@ namespace PJ
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 175);
+            this.button2.Location = new System.Drawing.Point(3, 143);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 80);
+            this.button2.Size = new System.Drawing.Size(132, 64);
             this.button2.TabIndex = 1;
             this.button2.Text = "修改";
             this.button2.UseVisualStyleBackColor = true;
@@ -132,7 +144,7 @@ namespace PJ
             // 
             this.button4.Location = new System.Drawing.Point(3, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(132, 80);
+            this.button4.Size = new System.Drawing.Size(132, 64);
             this.button4.TabIndex = 0;
             this.button4.Text = "新增";
             this.button4.UseVisualStyleBackColor = true;
@@ -140,9 +152,9 @@ namespace PJ
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 89);
+            this.button1.Location = new System.Drawing.Point(3, 73);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 80);
+            this.button1.Size = new System.Drawing.Size(132, 64);
             this.button1.TabIndex = 0;
             this.button1.Text = "刪除";
             this.button1.UseVisualStyleBackColor = true;
@@ -158,15 +170,15 @@ namespace PJ
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
-            // label2
+            // button5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(25, 352);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "關鍵字 : ";
+            this.button5.Location = new System.Drawing.Point(3, 213);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(132, 64);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "更新";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MenberView
             // 
@@ -201,6 +213,7 @@ namespace PJ
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button5;
     }
 }
 
