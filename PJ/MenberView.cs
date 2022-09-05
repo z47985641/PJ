@@ -19,40 +19,29 @@ namespace PJ
             InitializeComponent();
         }
         SqlCommandBuilder buider = new SqlCommandBuilder();
-        SqlDataAdapter adapter, adapterCity;
+        SqlDataAdapter adapter;
         int _position;
         private void Form1_Load(object sender, EventArgs e)
         {
             Refrash();
         }
-
+        DataView dv = new DataView();
         DataSet Dset = new DataSet();
-        DataSet Cityset = new DataSet();
         List<string> list = new List<string>();
-        List<string> Clist = new List<string>();
 
         private void Refrash()
         {
-            
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
 
-            adapter = new SqlDataAdapter(
-                "SELECT * " +
-                "FROM Member As M " 
-                , conn);
+            adapter = new SqlDataAdapter("SELECT * FROM Member", conn);
             buider.DataAdapter = adapter;
 
             adapter.Fill(Dset);
             conn.Close();
 
-            DataView dv = new DataView();
             dv.Table = Dset.Tables[0];
-
-            
-
             dataGridView1.DataSource = dv;
 
             CBox.Items.Clear();
@@ -70,9 +59,7 @@ namespace PJ
                 {
                     c.Style.BackColor = Color.White;
                 }
-               
             }
-
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
 
@@ -81,7 +68,6 @@ namespace PJ
                     MessageBox.Show("請輸入關鍵字!!!");
                     break;
                 }
-                   
                 if (CBox.Text =="")
                 {
                     foreach (DataGridViewCell c in r.Cells)
@@ -100,8 +86,6 @@ namespace PJ
                 {
                     r.Cells[list.IndexOf(CBox.Text)].Style.BackColor = Color.Yellow;
                 }
-
-
             }
         }
 
@@ -109,7 +93,6 @@ namespace PJ
         {
             if (_position < 0)
                 return;
-
             DataView dv = dataGridView1.DataSource as DataView;
             DataRow row = dv.Table.Rows[_position];
             row.Delete();
@@ -117,23 +100,19 @@ namespace PJ
         }
         private void databaseupdated()
         {
-            DataView dv = dataGridView1.DataSource as DataView;
-            if (dv.Count > 0)
+            DataView dg = dataGridView1.DataSource as DataView;
+            if (dg.Count > 0)
             {
-                adapter.Update(dv.Table);
-                Refrash();
+                adapter.Update(dg.Table);
             }
+            Refresh();
         }
-
-
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             _position = e.RowIndex;
         }
-
         private void M_Change(object sender, EventArgs e)
         {
-            
             if (_position < 0)
                 return;
             DataView dv = dataGridView1.DataSource as DataView;
@@ -152,7 +131,6 @@ namespace PJ
                 //LargePhoto = (byte[])row["MemberImage"],
                 isaddornot = true ,
             };
-
             MenberChange Pgchange = new MenberChange();
             Pgchange.Change = p;
             Pgchange.ShowDialog();
@@ -176,7 +154,6 @@ namespace PJ
         private void button5_Click(object sender, EventArgs e)
         {
             databaseupdated();
-            //Refrash();
         }
 
         private void M_Add(object sender, EventArgs e)
