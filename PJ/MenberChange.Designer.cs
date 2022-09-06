@@ -49,11 +49,11 @@ namespace PJ
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtMemberID = new System.Windows.Forms.TextBox();
-            this.txtCityID = new System.Windows.Forms.ComboBox();
-            this.txtAuthority = new System.Windows.Forms.ComboBox();
+            this.CBCityName = new System.Windows.Forms.ComboBox();
+            this.CBAuthorityName = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCityID = new System.Windows.Forms.TextBox();
+            this.txtAuthorityID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,6 +240,7 @@ namespace PJ
             // 
             // txtMemberID
             // 
+            this.txtMemberID.Enabled = false;
             this.txtMemberID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtMemberID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtMemberID.Location = new System.Drawing.Point(161, 20);
@@ -247,55 +248,59 @@ namespace PJ
             this.txtMemberID.Size = new System.Drawing.Size(121, 29);
             this.txtMemberID.TabIndex = 1;
             // 
-            // txtCityID
+            // CBCityName
             // 
-            this.txtCityID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
-            this.txtCityID.FormattingEnabled = true;
-            this.txtCityID.Location = new System.Drawing.Point(161, 279);
-            this.txtCityID.Name = "txtCityID";
-            this.txtCityID.Size = new System.Drawing.Size(82, 29);
-            this.txtCityID.TabIndex = 8;
+            this.CBCityName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.CBCityName.FormattingEnabled = true;
+            this.CBCityName.Location = new System.Drawing.Point(161, 279);
+            this.CBCityName.Name = "CBCityName";
+            this.CBCityName.Size = new System.Drawing.Size(147, 29);
+            this.CBCityName.TabIndex = 8;
+            this.CBCityName.SelectedIndexChanged += new System.EventHandler(this.CBCityName_SelectedIndexChanged);
             // 
-            // txtAuthority
+            // CBAuthorityName
             // 
-            this.txtAuthority.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
-            this.txtAuthority.FormattingEnabled = true;
-            this.txtAuthority.Location = new System.Drawing.Point(161, 316);
-            this.txtAuthority.Name = "txtAuthority";
-            this.txtAuthority.Size = new System.Drawing.Size(82, 29);
-            this.txtAuthority.TabIndex = 9;
+            this.CBAuthorityName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.CBAuthorityName.FormattingEnabled = true;
+            this.CBAuthorityName.Location = new System.Drawing.Point(161, 316);
+            this.CBAuthorityName.Name = "CBAuthorityName";
+            this.CBAuthorityName.Size = new System.Drawing.Size(147, 29);
+            this.CBAuthorityName.TabIndex = 9;
+            this.CBAuthorityName.SelectedIndexChanged += new System.EventHandler(this.CBAuthorityName_SelectedIndexChanged);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox1
+            // txtCityID
             // 
-            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox1.Location = new System.Drawing.Point(249, 277);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 29);
-            this.textBox1.TabIndex = 13;
+            this.txtCityID.Enabled = false;
+            this.txtCityID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCityID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtCityID.Location = new System.Drawing.Point(314, 277);
+            this.txtCityID.Name = "txtCityID";
+            this.txtCityID.Size = new System.Drawing.Size(56, 29);
+            this.txtCityID.TabIndex = 13;
             // 
-            // textBox2
+            // txtAuthorityID
             // 
-            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox2.Location = new System.Drawing.Point(249, 316);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 29);
-            this.textBox2.TabIndex = 14;
+            this.txtAuthorityID.Enabled = false;
+            this.txtAuthorityID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAuthorityID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtAuthorityID.Location = new System.Drawing.Point(314, 316);
+            this.txtAuthorityID.Name = "txtAuthorityID";
+            this.txtAuthorityID.Size = new System.Drawing.Size(56, 29);
+            this.txtAuthorityID.TabIndex = 14;
             // 
             // MenberChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 411);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtAuthority);
+            this.Controls.Add(this.txtAuthorityID);
             this.Controls.Add(this.txtCityID);
+            this.Controls.Add(this.CBAuthorityName);
+            this.Controls.Add(this.CBCityName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -346,10 +351,10 @@ namespace PJ
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtMemberID;
-        private System.Windows.Forms.ComboBox txtCityID;
-        private System.Windows.Forms.ComboBox txtAuthority;
+        private System.Windows.Forms.ComboBox CBCityName;
+        private System.Windows.Forms.ComboBox CBAuthorityName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCityID;
+        private System.Windows.Forms.TextBox txtAuthorityID;
     }
 }

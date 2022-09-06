@@ -31,6 +31,8 @@ namespace PJ
 
         private void Refrash()
         {
+            
+
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
@@ -40,6 +42,9 @@ namespace PJ
 
             adapter.Fill(Dset);
             conn.Close();
+
+
+
 
             dv.Table = Dset.Tables[0];
             dataGridView1.DataSource = dv;
@@ -51,6 +56,16 @@ namespace PJ
                 list.Add(c.ColumnName);
             }
         }
+
+        private void CleanTable()
+        {
+            if (dv.Table != null)
+            {
+                dv.Table.Rows.Clear();
+                dv.Table.NewRow();
+            }
+        }
+
         private void M_search(object sender, EventArgs e)
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
@@ -100,12 +115,13 @@ namespace PJ
         }
         private void databaseupdated()
         {
-            DataView dg = dataGridView1.DataSource as DataView;
-            if (dg.Count > 0)
+
+            if (dv.Count > 0)
             {
-                adapter.Update(dg.Table);
+                adapter.Update(dv.Table);
+                CleanTable();
+                Refrash();
             }
-            Refresh();
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -128,7 +144,7 @@ namespace PJ
                 CityID          = (int)row["CityID"],
                 Authority       = row["Authority"].ToString(),
                 BirthDate =DateTime.Parse(row["BirthDate"].ToString()),
-                //LargePhoto = (byte[])row["MemberImage"],
+                LargePhoto = (byte[])row["MemberImage"],
                 isaddornot = true ,
             };
             MenberChange Pgchange = new MenberChange();
@@ -153,7 +169,8 @@ namespace PJ
 
         private void button5_Click(object sender, EventArgs e)
         {
-            databaseupdated();
+            CleanTable();
+            Refrash();
         }
 
         private void M_Add(object sender, EventArgs e)
@@ -178,7 +195,7 @@ namespace PJ
             row["BirthDate"] = p.BirthDate;
             row["MemberImage"] = p.LargePhoto;
             dv.Table.Rows.Add(row);
-
+            
             databaseupdated();
         }
 
