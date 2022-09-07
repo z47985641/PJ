@@ -19,26 +19,64 @@ namespace PJ
             InitializeComponent();
         }
         SqlCommandBuilder buider = new SqlCommandBuilder();
+        SqlCommandBuilder buider2 = new SqlCommandBuilder();
         SqlDataAdapter adapter;
+        SqlDataAdapter adapter2;
         int _position;
         private void Form1_Load(object sender, EventArgs e)
         {
-            Refrash();
+            RefrashData();
         }
         DataView dv = new DataView();
-        DataSet Dset = new DataSet();
+        DataSet Dset = new DataSet(); 
+        DataView dv2 = new DataView();
+        DataSet Dset2 = new DataSet();
         List<string> list = new List<string>();
         string key = "", keyword = ""; 
         private void RefrashData()
         {
             CleanTable();
+            AdminRefrash();
             Refrash();
+            setGridStyle();
+        }
+        private void setGridStyle()
+        {
+            dataGridView1.Columns[0].Width = 80;
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 100;
+            dataGridView1.Columns[6].Width = 130;
+            dataGridView1.Columns[7].Width = 50;
+            dataGridView1.Columns[8].Width = 100;
+            dataGridView1.Columns[9].Width = 70;
+
+            dataGridView2.Columns[0].Width = 70;
+            dataGridView2.Columns[1].Width = 70;
+            dataGridView2.Columns[2].Width = 70;
+
+        }
+        private void AdminRefrash()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
+            conn.Open();
+            if(Admin)
+            adapter2 = new SqlDataAdapter("SELECT * FROM Admin", conn);
+            buider2.DataAdapter = adapter2;
+
+            adapter2.Fill(Dset2);
+            conn.Close();
+
+            dv2.Table = Dset2.Tables[0];
+            dataGridView2.DataSource = dv2;
+
         }
 
         private void Refrash()
         {
-            
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
@@ -51,9 +89,7 @@ namespace PJ
             {
                 adapter = new SqlDataAdapter($"SELECT * FROM Member {keyword}", conn);
                 buider.DataAdapter = adapter;
-
             }
-
 
             adapter.Fill(Dset);
             conn.Close();
@@ -76,6 +112,8 @@ namespace PJ
             {
                 dv.Table.Rows.Clear();
                 dv.Table.NewRow();
+                dv2.Table.Rows.Clear();
+                dv2.Table.NewRow();
             }
         }
 
@@ -91,22 +129,11 @@ namespace PJ
             }
 
             key = textBox1.Text;
-            if (
-                    key == "")
+            if (key == "")
             {
                 MessageBox.Show("請輸入關鍵字!!!");
                 return;
             }
-            //CB = X , TXT = X OR CB = V, TXT = X
-            
-
-            //foreach (DataGridViewRow r in dataGridView1.Rows)
-            //{
-            //    foreach (DataGridViewCell c in r.Cells)
-            //    {
-            //        c.Style.BackColor = Color.White;
-            //    }
-            //}
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
                 if (r.Cells[list.IndexOf(CBox.Text)].Value == null)
@@ -114,9 +141,7 @@ namespace PJ
                 if (r.Cells[list.IndexOf(CBox.Text)].Value.ToString().ToUpper().Contains(key.ToUpper()))
                 {
                     keyword = $"where {CBox.Text} like '%{key}%' ";
-                    r.Cells[list.IndexOf(CBox.Text)].Style.BackColor = Color.Yellow;
                     searchkey = 1;
-                    //CB =V, TXT = V 單攔查詢
                 }
             }
             if (searchkey == 0)
@@ -185,6 +210,11 @@ namespace PJ
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+            RefrashData();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
         {
             RefrashData();
         }
