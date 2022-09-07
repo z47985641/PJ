@@ -36,11 +36,11 @@ namespace PJ
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -130,6 +130,16 @@ namespace PJ
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.M_search);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(3, 213);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(132, 64);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "更新";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(3, 143);
@@ -169,16 +179,6 @@ namespace PJ
             this.dataGridView1.Size = new System.Drawing.Size(1043, 461);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(3, 213);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(132, 64);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "更新";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MenberView
             // 

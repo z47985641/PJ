@@ -28,6 +28,12 @@ namespace PJ
         DataView dv = new DataView();
         DataSet Dset = new DataSet();
         List<string> list = new List<string>();
+        string key = "", keyword = ""; 
+        private void RefrashData()
+        {
+            CleanTable();
+            Refrash();
+        }
 
         private void Refrash()
         {
@@ -36,15 +42,21 @@ namespace PJ
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=.;Initial Catalog=MingSu;Integrated Security=True";
             conn.Open();
+            if (keyword == "")
+            {
+                adapter = new SqlDataAdapter("SELECT * FROM Member", conn);
+                buider.DataAdapter = adapter;
+            }
+            else 
+            {
+                adapter = new SqlDataAdapter($"SELECT * FROM Member {keyword}", conn);
+                buider.DataAdapter = adapter;
 
-            adapter = new SqlDataAdapter("SELECT * FROM Member", conn);
-            buider.DataAdapter = adapter;
+            }
+
 
             adapter.Fill(Dset);
             conn.Close();
-
-
-
 
             dv.Table = Dset.Tables[0];
             dataGridView1.DataSource = dv;
@@ -55,6 +67,7 @@ namespace PJ
                 CBox.Items.Add(c.ColumnName);
                 list.Add(c.ColumnName);
             }
+            keyword = "";
         }
 
         private void CleanTable()
@@ -68,47 +81,51 @@ namespace PJ
 
         private void M_search(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow r in dataGridView1.Rows)
+            int searchkey = 0;
+            if (list.IndexOf(CBox.Text) < 0)
             {
-                foreach (DataGridViewCell c in r.Cells)
-                {
-                    c.Style.BackColor = Color.White;
-                }
+                MessageBox.Show("請選取欄位");
+                return;
             }
-            foreach (DataGridViewRow r in dataGridView1.Rows)
-            {
 
-                if (textBox1.Text == "")
-                {
-                    MessageBox.Show("請輸入關鍵字!!!");
+            key = textBox1.Text;
+            if (
+                    key == "")
+            {
+                MessageBox.Show("請輸入關鍵字!!!");
+                return;
+            }
+            //CB = X , TXT = X OR CB = V, TXT = X
+            
+
+            //foreach (DataGridViewRow r in dataGridView1.Rows)
+            //{
+            //    foreach (DataGridViewCell c in r.Cells)
+            //    {
+            //        c.Style.BackColor = Color.White;
+            //    }
+            //}
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                if (r.Cells[list.IndexOf(CBox.Text)].Value == null)
                     break;
-                }
-                if (CBox.Text =="")
+                if (r.Cells[list.IndexOf(CBox.Text)].Value.ToString().ToUpper().Contains(key.ToUpper()))
                 {
-                    foreach (DataGridViewCell c in r.Cells)
-                    {
-                        if (c.Value == null)
-                            continue;
-                        if (c.Value.ToString().ToUpper().Contains(textBox1.Text.ToUpper()))
-                        {
-                            c.Style.BackColor = Color.Yellow;
-                        }
-                    }
-                }
-                if (  list.IndexOf(CBox.Text)<0||r.Cells[list.IndexOf(CBox.Text)].Value == null)
-                    break;
-                if (r.Cells[list.IndexOf(CBox.Text)].Value.ToString().ToUpper().Contains(textBox1.Text.ToUpper()))
-                {
+                    keyword = $"where {CBox.Text} like '%{key}%' ";
                     r.Cells[list.IndexOf(CBox.Text)].Style.BackColor = Color.Yellow;
+                    searchkey = 1;
+                    //CB =V, TXT = V 單攔查詢
                 }
             }
+            if (searchkey == 0)
+                MessageBox.Show("查無資料");
+            RefrashData();
         }
 
         private void M_Delete(object sender, EventArgs e)
         {
             if (_position < 0)
                 return;
-            DataView dv = dataGridView1.DataSource as DataView;
             DataRow row = dv.Table.Rows[_position];
             row.Delete();
             databaseupdated();
@@ -119,8 +136,7 @@ namespace PJ
             if (dv.Count > 0)
             {
                 adapter.Update(dv.Table);
-                CleanTable();
-                Refrash();
+                RefrashData();
             }
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -131,7 +147,6 @@ namespace PJ
         {
             if (_position < 0)
                 return;
-            DataView dv = dataGridView1.DataSource as DataView;
             DataRow row = dv.Table.Rows[_position];
             Cmenber p = new Cmenber()
             {
@@ -169,8 +184,7 @@ namespace PJ
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CleanTable();
-            Refrash();
+            RefrashData();
         }
 
         private void M_Add(object sender, EventArgs e)

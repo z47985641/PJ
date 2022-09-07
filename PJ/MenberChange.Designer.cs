@@ -41,7 +41,6 @@ namespace PJ
             this.label8 = new System.Windows.Forms.Label();
             this.txtMemberPassword = new System.Windows.Forms.TextBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
-            this.txtBirthDate = new System.Windows.Forms.TextBox();
             this.txtMemberPhone = new System.Windows.Forms.TextBox();
             this.txtMemberEmail = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,6 +53,8 @@ namespace PJ
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtCityID = new System.Windows.Forms.TextBox();
             this.txtAuthorityID = new System.Windows.Forms.TextBox();
+            this.LBphone = new System.Windows.Forms.Label();
+            this.DTPBirthDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,14 +174,6 @@ namespace PJ
             this.txtMemberName.Size = new System.Drawing.Size(168, 29);
             this.txtMemberName.TabIndex = 4;
             // 
-            // txtBirthDate
-            // 
-            this.txtBirthDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtBirthDate.Location = new System.Drawing.Point(161, 168);
-            this.txtBirthDate.Name = "txtBirthDate";
-            this.txtBirthDate.Size = new System.Drawing.Size(121, 29);
-            this.txtBirthDate.TabIndex = 5;
-            // 
             // txtMemberPhone
             // 
             this.txtMemberPhone.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -188,6 +181,7 @@ namespace PJ
             this.txtMemberPhone.Name = "txtMemberPhone";
             this.txtMemberPhone.Size = new System.Drawing.Size(121, 29);
             this.txtMemberPhone.TabIndex = 6;
+            this.txtMemberPhone.TextChanged += new System.EventHandler(this.txtMemberPhone_TextChanged);
             // 
             // txtMemberEmail
             // 
@@ -210,7 +204,7 @@ namespace PJ
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(372, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(745, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +214,7 @@ namespace PJ
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(372, 245);
+            this.button3.Location = new System.Drawing.Point(745, 251);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 30);
             this.button3.TabIndex = 11;
@@ -292,11 +286,31 @@ namespace PJ
             this.txtAuthorityID.Size = new System.Drawing.Size(56, 29);
             this.txtAuthorityID.TabIndex = 14;
             // 
+            // LBphone
+            // 
+            this.LBphone.AutoSize = true;
+            this.LBphone.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LBphone.Location = new System.Drawing.Point(288, 208);
+            this.LBphone.Name = "LBphone";
+            this.LBphone.Size = new System.Drawing.Size(0, 21);
+            this.LBphone.TabIndex = 15;
+            // 
+            // DTPBirthDate
+            // 
+            this.DTPBirthDate.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.DTPBirthDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.DTPBirthDate.Location = new System.Drawing.Point(161, 170);
+            this.DTPBirthDate.Name = "DTPBirthDate";
+            this.DTPBirthDate.Size = new System.Drawing.Size(200, 29);
+            this.DTPBirthDate.TabIndex = 16;
+            // 
             // MenberChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 411);
+            this.ClientSize = new System.Drawing.Size(1007, 411);
+            this.Controls.Add(this.DTPBirthDate);
+            this.Controls.Add(this.LBphone);
             this.Controls.Add(this.txtAuthorityID);
             this.Controls.Add(this.txtCityID);
             this.Controls.Add(this.CBAuthorityName);
@@ -316,7 +330,6 @@ namespace PJ
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtMemberEmail);
             this.Controls.Add(this.txtMemberPhone);
-            this.Controls.Add(this.txtBirthDate);
             this.Controls.Add(this.txtMemberName);
             this.Controls.Add(this.txtMemberID);
             this.Controls.Add(this.txtMemberPassword);
@@ -343,7 +356,6 @@ namespace PJ
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtMemberPassword;
         private System.Windows.Forms.TextBox txtMemberName;
-        private System.Windows.Forms.TextBox txtBirthDate;
         private System.Windows.Forms.TextBox txtMemberPhone;
         private System.Windows.Forms.TextBox txtMemberEmail;
         private System.Windows.Forms.Button button2;
@@ -356,5 +368,7 @@ namespace PJ
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox txtCityID;
         private System.Windows.Forms.TextBox txtAuthorityID;
+        private System.Windows.Forms.Label LBphone;
+        private System.Windows.Forms.DateTimePicker DTPBirthDate;
     }
 }

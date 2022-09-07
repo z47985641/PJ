@@ -38,10 +38,7 @@ namespace PJ
         }
         MingSuEntities Minsu =new MingSuEntities();
         List<string> AuthorityLIST = new List<string> { "普通會員","業主","管理員"};
-        List<string> CityLIST = new List<string>();
         System.IO.MemoryStream ms = new System.IO.MemoryStream(); 
-        PictureBox pic = new PictureBox();
-        MenberView View = new MenberView();
         Cmenber _menber = new Cmenber();
         bool _isOkClik = false;
         byte[] bytes;
@@ -55,7 +52,7 @@ namespace PJ
                 _menber.MemberAccount   = txtMemberAccount.Text;
                 _menber.MemberPassword  = txtMemberPassword.Text;
                 _menber.MemberName      = txtMemberName.Text;
-                _menber.BirthDate       = DateTime.Parse(txtBirthDate.Text);
+                _menber.BirthDate       = DTPBirthDate.Value;
                 _menber.MemberPhone     = txtMemberPhone.Text;
                 _menber.MemberEmail     = txtMemberEmail.Text;
                 _menber.CityID = int.Parse(txtCityID.Text);
@@ -71,7 +68,7 @@ namespace PJ
                 txtMemberAccount.Text   = _menber.MemberAccount;
                 txtMemberPassword.Text  = _menber.MemberPassword;
                 txtMemberName.Text      = _menber.MemberName;
-                txtBirthDate.Text       = _menber.BirthDate.ToString();
+                DTPBirthDate.Value = _menber.BirthDate;
                 txtMemberPhone.Text     = _menber.MemberPhone;
                 txtMemberEmail.Text     = _menber.MemberEmail;
                 txtCityID.Text          = _menber.CityID.ToString();
@@ -83,10 +80,6 @@ namespace PJ
                         select i;
                 foreach(var i in q)
                 CBCityName.Text = i.CityName;
-
-
-
-
             }
         }
         public bool isbuttonclik
@@ -100,7 +93,7 @@ namespace PJ
             bytes = ms.GetBuffer();
             this.Close();
         }
-        public System.Drawing.Image Btyechangeimge(byte[] streamByte)
+        private System.Drawing.Image Btyechangeimge(byte[] streamByte)
         {
             System.IO.MemoryStream BCI = new System.IO.MemoryStream(streamByte);
             System.Drawing.Image img = System.Drawing.Image.FromStream(BCI);
@@ -111,7 +104,7 @@ namespace PJ
         {
             this.Close();
         }
-        MingSuEntities MS = new MingSuEntities();
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -132,6 +125,17 @@ namespace PJ
                     select n;
             foreach (var i in q)
                 txtCityID.Text = i.CityID.ToString();
+
+        }
+
+        private void txtMemberPhone_TextChanged(object sender, EventArgs e)
+        {
+            LBphone.Visible = false;
+            if (txtMemberPhone.Text.Length != 10)
+            {
+                LBphone.Visible = true;
+                LBphone.Text = "格式錯誤";
+            }
         }
     }
 }
