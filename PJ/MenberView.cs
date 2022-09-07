@@ -81,6 +81,8 @@ namespace PJ
 
         private void M_search(object sender, EventArgs e)
         {
+            RefrashData();
+
             int searchkey = 0;
             if (list.IndexOf(CBox.Text) < 0)
             {
